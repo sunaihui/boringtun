@@ -1,17 +1,27 @@
 This is a modified version,only Debian running in Lxc and Openvz virtualization.
 
 apt install build-essential
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 git clone  https://github.com/sunaihui/boringtun.git
+
 cd boringtun
+
 source $HOME/.cargo/env
+
 cargo build --bin boringtun --release --target x86_64-unknown-linux-gnu
 
 release file dir: target/x86_64-unknown-linux-gnu/release
+
 test: boringtun -f wg0
+
 if you want used wireguard-tools
+
 echo "deb http://deb.debian.org/debian buster-backports main" > /etc/apt/sources.list.d/sources.list
+
 apt-get update
+
 apt install wireguard
 
 
